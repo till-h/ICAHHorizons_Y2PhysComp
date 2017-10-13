@@ -1,8 +1,7 @@
-
 # Session 1 Workbook - Physical Computing
 
 <p align="center">
-    <img src=\"images/ICAHLOGO.png" alt="ICAHLOGO" width="300">
+    <img src="images/ICAHLOGO.png" alt="ICAHLOGO" width="300">
 </p>
 
 ## How to use this workbook
@@ -84,11 +83,11 @@ Most programming languages hold data in variables. Just like in Mathematics, var
 
 You can try this out in your notebook:
 
-~~~Python
+```Python
 number_of_hands = 2 # Hold the value 2 in a variable called "number_of_hands"
 fingers_per_hand = 5 # Hold the value 3 in a variable called "fingers_per_hand"
 number_of_fingers = number_of_hands * fingers_per_hand # What value will this be?
-~~~
+```
 
 Note that variable names must start with a letter and should only contain letters, numbers and underscores.
 
@@ -98,27 +97,27 @@ Programming languages use different **data types** for different types of data. 
 
 Let's try this out! In your notebook, type the following:
 
-~~~python
+```python
 x  = 1
 some_text = "Hello World!"
 some_boolean = False
 print(x)
 print(some_text)
 print(some_boolean)
-~~~
+```
 
 The first three lines assign values to three variables called `x`, `some_text`, `some_boolean`, and the last three lines use Python's built-in `print` function that prints them out. When you've typed this into a cell, press the `run cell, select below` button.
 
 We can perform mathematical calculations in Python using the basic operators +, -, \*, /, \*\*, %. Try it out in your notebook (no need to use the print function in this case):
 
-~~~python
+```python
 4 + 5
 4 - 3
 2 * 3
 3 / 4
 2 ** 3
 10 % 7 # Returns the remainder of a division
-~~~
+```
 
 In Python, the [standard order of operations](https://en.wikibooks.org/wiki/Python_Programming/Basic_Math) is from left to right, and respects the mathematical precedence of operations (memorised by many as PEMDAS):
 
@@ -131,13 +130,13 @@ In Python, the [standard order of operations](https://en.wikibooks.org/wiki/Pyth
 
 Let's try it:
 
-~~~python
+```python
 3 / 4 * 5  # First division and then multiplication
 3.0 / 4 * 5
 (3.0 / 4) * 4
 2 ** 8
 10 % 7 # Remainder of a division
-~~~
+```
 
 The following table lists Python's comparison operators:
 
@@ -152,21 +151,21 @@ The following table lists Python's comparison operators:
 
 You can check how these work in your notebook:
 
-~~~python
+```python
 2 == 3
 3 == 3
 2 < 3
 True == (False != True)
-~~~
+```
 
 The output will be
 
-~~~python
+```python
 False
 True
 False
 True # Can you explain this?
-~~~
+```
 
 There are more operators, which you can read about [here](https://www.tutorialspoint.com/python/python_basic_operators.htm).
 
@@ -176,11 +175,11 @@ The data stored in memory can be of different types; Python has five: **Numbers*
 
 You can check the data types in your notebook:
 
-~~~python
+```python
 type(number_of_hands) # Number
 type(fingers_per_hand)
 type(some_text) # String
-~~~
+```
 
 **Strings** in Python are a set of characters represented by the quotation marks. Python allows either a pair of single or double quotes.
 
@@ -190,7 +189,7 @@ The values stored in a list can be accessed using the slice operator ([] and [:]
 
 The plus (+) sign is the list concatenation operator, and the asterisk (\*) is the repetition operator.
 
-~~~python
+```python
 list = [ 'abc', 12 , 2.23, 'john', 70.2 ]
 tinylist = [123, 'john']
 
@@ -201,23 +200,21 @@ print list[2:]        # Prints elements starting from 3rd element
 print tinylist * 2    # Prints list two times
 print list + tinylist # Prints concatenated lists
 'abc' + 'fgb' # Strings behave very similarly to lists, and concatenation works the same
-~~~
+```
 
 ### User input
 
-Often it is necessary to give a program some new information while it is already running. In Python, this is achieved by using the `input()` function.
+The following python code accepts user input and stores it in the variable `user_name`.
 
-Try the following out in your notebook:
-
-~~~python
-my_name = ''
-my_name = input('Please tell me your name! ')
-print('Hello, ' + my_name + ', nice to meet you.')
-~~~
+```python
+user_name = ''
+user_name = input('Please tell me your name! ')
+print('Hello, ' + user_name + ', nice to meet you.')
+```
 
 ### Control Flow
 
-We have so far seen many small bits of software that fulfil one specific task at a time (like assigning a value to a variable, or accepting user input). In order to tackle more complex tasks, we need to combine many of these items into one larger computer program. Think of programs like cooking recipes: They are a sequence of statements (i.e., lines of code), to be executed by a very quick and accurate, but also adhere-to-the-letter type of cook (your Raspberry Pi).
+We have so far seen many small bits of software that fulfil one specific task at a time (like assigning a value to a variable, or accepting user input). In order to tackle more complex tasks, we need to combine many of these items into one larger computer program. Think of programs as cooking recipes: They are a sequence of statements (i.e., lines of code), to be executed by a very quick and accurate, but also adhere-to-the-letter type of cook (your Raspberry Pi).
 
 As programmers, we set up “paths” for the program to follow.
 
