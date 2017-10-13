@@ -4,7 +4,7 @@
     <img src="images/ICAHLOGO.png" alt="ICAHLOGO" width="300">
 </p>
 
-## How to use this workbook
+# How to use this workbook
 
 Welcome back to the Physical Computing Theme!
 
@@ -14,13 +14,13 @@ We will work through this sheet as follows. For each of the following chapters, 
 
 We will also cover some basics together as a class at the beginning of each chapter.
 
-## Homework for the next Session
+# Homework for the next Session
 
 If you have exercises left before wrapping up today's session, please finish them as homework for the next session. **This is mandatory.** For assessing your homework, we expect a coded solution. However, if you really get stuck with an exercise, this is not a problem, and instead of program code, we need you to explain as well as you can where and how you got stuck. It is just as useful being able to describe what the problem is as it is to solve it.
 
-## Writing Python programs on Raspberry Pi
+# Writing Python programs on Raspberry Pi
 
-### The Raspberry Pi computer
+## The Raspberry Pi computer
 
 Raspberry Pi is a small computer the size of a credit card that you can plug into a monitor, keyboard and mouse. You can use it in the same way as you would use your desktop PC or laptop. You can generate spreadsheets, do word processing, browse the internet, and play games. It also plays high-definition video.
 
@@ -31,7 +31,7 @@ However, what will make it interesting for us is its capability for use in elect
     <figcaption align="center">The Raspberry Pi (version 3)</figcaption>
 </p>
 
-### The tools of the trade - the Linux terminal and a code editor
+## The tools of the trade - the Linux terminal and a code editor
 
 But how about (a) writing, and (b) executing Python programs on the Rasberry Pi?
 
@@ -73,11 +73,11 @@ Hint: You can use tab completion. For example, when typing ```cd```+<kbd>Tab</kb
 
 Long story short - the Terminal is much like a text-based file explorer, bolted together with a powerful general "command centre" for your computer. You can also start the usual programs from within the terminal. Just type ```chromium```+<kbd>Enter</kbd>.
 
-## Chapter 1 - Consolidating our Python skills
+# Chapter 1 - Consolidating our Python skills
 
 First off, are there any questions from the last session or the homework?
 
-### Basic Python: Variables, Operators, Data Types
+## Basic Python: Variables, Operators, Data Types
 
 Most programming languages hold data in variables. Just like in Mathematics, variables in Python are a convenient way to refer to a quantity through a memorable name.
 
@@ -169,7 +169,7 @@ True # Can you explain this?
 
 There are more operators, which you can read about [here](https://www.tutorialspoint.com/python/python_basic_operators.htm).
 
-### Strings, Lists and Indexing
+## Strings, Lists and Indexing
 
 The data stored in memory can be of different types; Python has five: **Numbers** and **Strings**, which we have encountered above, and also **List**, which we will touch upon below. (We won't have time to cover the [**Tuple**](https://www.tutorialspoint.com/python/python_tuples.htm) and [**Dictionary**](https://www.tutorialspoint.com/python/python_dictionary.htm) types.)
 
@@ -197,12 +197,13 @@ print list            # Prints complete list
 print list[0]         # Prints first element of the list
 print list[1:3]       # Prints elements starting from 2nd till 3rd
 print list[2:]        # Prints elements starting from 3rd element
+print list[-1]        # Negative indexing: Prints the last element of the list
 print tinylist * 2    # Prints list two times
 print list + tinylist # Prints concatenated lists
-'abc' + 'fgb' # Strings behave very similarly to lists, and concatenation works the same
+'abc' + 'fgb'         # Strings behave very similarly to lists, and concatenation works the same
 ```
 
-### User input
+## User input
 
 The following python code accepts user input and stores it in the variable `user_name`.
 
@@ -212,39 +213,150 @@ user_name = input('Please tell me your name! ')
 print('Hello, ' + user_name + ', nice to meet you.')
 ```
 
-### Control Flow
+## Control flow
 
 We have so far seen many small bits of software that fulfil one specific task at a time (like assigning a value to a variable, or accepting user input). In order to tackle more complex tasks, we need to combine many of these items into one larger computer program. Think of programs as cooking recipes: They are a sequence of statements (i.e., lines of code), to be executed by a very quick and accurate, but also adhere-to-the-letter type of cook (your Raspberry Pi).
 
-As programmers, we set up “paths” for the program to follow.
-
-One simple path is shown in the figure below. Can you tell the output of the program?
+As programmers, we set up “paths” for the program to follow. Can you tell the output of the program?
 
 <p align="center">
 <img src="images/Flow1.png" alt="pin" width="90">
 </p>
 
-### Functions
+## Conditional statements
 
+Conditional statements allow the program to react to new information _whilst it is running_ ("at runtime").
 
+We use the `if ...:`-`elif ...:`-`else:` construct for this scenario. For example --
 
-### Exercises
+```python
+weight = input("Please input your weight in kg: ")
+height = input("Please input your height in m: ")
+# Need to convert strings to actual number types, using the float(...) function
+bmi = float(weight) / float(height) ** 2
+if bmi >=16 and bmi < 18.5:
+    print("Your BMI looks a bit low (underweight).")
+elif bmi >= 18.5 and bmi < 25:
+    print("Your BMI is considered healthy.")
+elif bmi >= 25 and bmi < 30:
+    print("Your BMI looks a bit large (overweight).")
+else:
+    print("According to your BMI, you are severely over- or underweight.")
+```
+
+Two important points to remember:
+1. **Code blocks that are executed inside an `if`/`elif`/`else` statement are indented with a tab. This is Python's way to group code into blocks.**
+2. **These code blocks start after a colon and end when the indentation stops.**
+
+## Repeating code: Loops
+
+Often, we need an action to be repeated. One way to achieve this is to use a `while` loop:
+
+```python
+count = 0
+while (count < 9):
+    print 'The count is:', count
+    count = count + 1
+print "Goodbye!"
+```
+
+To run through a list of things, we can use a `for` loop:
+
+```python
+my_numbers = [1,2,3,4,5]
+for number in my_numbers:
+    print(number ** 2)
+```
+
+## Functions
+
+Functions enable you to "recycle" blocks of related code at different places in your program.
+
+A function is a block of organised, reusable code that is used to perform a single, related action. Functions provide better modularity for your application and a high degree of code reusing.
+
+```python
+# Import a maths library for accessing the value of pi
+import numpy as np
+
+# Function that calculates the area of a circle from its radius
+def get_area(radius):
+    area = np.pi * radius ** 2
+    return area
+
+radii = [1, 2, 3, 4, 5, 6]
+
+for radius in radii:
+    area = get_area(radius)
+    print("The area of a circle of radius " + radius +
+          " cm is " + area + " cm^2.")
+print "Done."
+```
+
+Functions are _defined_ using the `def` keyword, followed by the function name, and any arguments in brackets. Functions return a value using the `return` keyword.
+
+## Mandatory exercises
 
 Following on from the Introductory Session and your homework, can you solve the following tasks?
 
-1. <p align="center"><img src="images/Flow1.png" alt="pin" width="90"></p> Implement this program in Python.
-1. 
+1. Program the following flow chart in Python.
+   <p align="center">
+   	  <img src="images/IfElseExercise.png" alt="pin" width="400">
+   </p>
+
+1. Program the below flow chart in Python. Ask the user to input sensible answers.
+   <p align="center">
+ 	  <img src="images/engineering-flow-chart.png" alt="pin" width="400">
+   </p>
+
+1. Write a program that produces the following output.
+   ``` python
+   My number is 24
+   My number is 36
+   My number is 48
+   My number is 60
+   ```
+   
 1. String manipulation. Check whether a word is a palindrome. _Palindromes_ are words that read the same forwards and backwards, for example _madame_ or _racecar_.
-1. Can you program Erathostenes sieve? Can you create a program that gives all prime numbers between a lower and an upper number, for example to find all primes between 10,000 and 11,000? [More information here](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
-1. Using http library. Familiarise yourself with the basic interface of the http library. can you write a program that grabs the current temperature and wind speed for a user-input location and displays it nicely in the terminal? 
 
-## Chapter 3 - Physical Computing and the gpiozero library
+## Optional exercises
 
-TODO: include pinout image from gpiozero
+1. Can you program Eratosthenes' sieve? Additional difficulty: Create a program that gives all prime numbers between a lower and an upper number, for example to find all primes between 10,000 and 11,000? [More information here](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
+1. Choose a library that can perform HTTP GET requests (there is one by that very name that looks promising). Can you write a program that grabs the current temperature and wind speed for a user-input location and displays it nicely in the terminal? With a view to the next Chapter, can you get it to light an led if the temperature is above 15°C?
+1. You got as far as this? Ok, fair dos. Start work on an implementation of [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm). You will have to decide on a data structure to hold a graph, amongst many other considerations.
 
-### Teaching stint
+# Chapter 3 - Physical Computing and the gpiozero library
 
-### Exercises
+Ultimately, we want you to control a physical contraption with your Raspberry Pi. For this, we'll use the golden General Purpose Input/Output (GPIO) pins on the side of your Pi. This layout is shown below.
+
+<p align="center">
+    <img src="images/RPi_pin_layout.svg" alt="pin" width="200">
+    <figcaption align="center">Raspberry Pi pin layout</figcaption>
+</p>
+
+## Working with libraries
+
+We've come across them before, but here is a reminder. To avoid "re-inventing the wheel", we can use existing software inside our programs. This comes in the form of **libraries**.
+
+## Exercises
+
+Feel free to team up for these challenges. We only have a limited amount of each sensor.
+
+1. Write a program that flashes an LED at a frequency set by the user.
+
+1. Using gpiozero's [PWMLED object](), write a program that repeatedly dims the LED from zero to full brightness, and immediately repeats. This is called a sawtooth wave.
+
+    <p align="center">
+        <img src="images/Sawtooth.gif" alt="pin" width="300">
+        <figcaption align="center">A sawtooth wave</figcaption>
+    </p>
+
+1. Write a program that flashes an LED if it detects an object closer than 20cm from the distance sensor.
+
+1. Write a program that accepts user input like "HELLOCANYOUHEARME" (all upper case and no whitespace), and then flashes an LED to represent this message as a series of short and long LED flashes, representing the dots and dashes of Morse code. You will need to translate letters into dots and dashes according to the Morse alphabet. This can be found here, and the timing rules for Morse code here.
+
+
+
+
 
 
 ```python
