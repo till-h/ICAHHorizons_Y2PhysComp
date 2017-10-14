@@ -382,7 +382,7 @@ The gpiozero library enables us to control the GPIO pins on our Pi. We start off
 Connect an LED via a resistor to the Ground (GND) and GPIO pin 17 (GP17). Note that the shorter wire of the LED needs to connect to ground.
 
 <p align="center">
-    <img src="images/gpiozero_led.png" alt="Connecting an LED" width="400">
+    <img src="images/gpiozero_led.png" alt="Connecting an LED" width="800">
     <figcaption align="center">Connecting an LED to the Pi</figcaption>
 </p>
 
@@ -431,7 +431,7 @@ We couldn't get gpiozero's own `DistanceSensor` to give us any sensible distance
 Wire the sensor as shown below.
 
 <p align="center">
-    <img src="images/gpiozero_distance_sensor.png" alt="Connecting an LED" width="400">
+    <img src="images/gpiozero_distance_sensor.png" alt="Connecting an LED" width="800">
     <figcaption align="center">Connecting an LED to the Pi</figcaption>
 </p>
 
