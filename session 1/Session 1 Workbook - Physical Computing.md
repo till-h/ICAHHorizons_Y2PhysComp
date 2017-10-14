@@ -79,9 +79,7 @@ First off, are there any questions from the last session or the homework?
 
 ## Basic Python: Variables, Operators, Data Types
 
-Most programming languages hold data in variables. Just like in Mathematics, variables in Python are a convenient way to refer to a quantity through a memorable name.
-
-You can try this out in your notebook:
+Programming languages hold data in variables. Just like in maths, variables in Python are a convenient way to refer to a quantity through a memorable name.
 
 ```Python
 number_of_hands = 2 # Hold the value 2 in a variable called "number_of_hands"
@@ -89,26 +87,21 @@ fingers_per_hand = 5 # Hold the value 3 in a variable called "fingers_per_hand"
 number_of_fingers = number_of_hands * fingers_per_hand # What value will this be?
 ```
 
-Note that variable names must start with a letter and should only contain letters, numbers and underscores.
+Variable names must start with a letter and should only contain letters, numbers and underscores.
 
-In this example, we used hashtags at the beginning of code lines to mark **comments**, which are not executed.
+In this example, we used hashtags to mark everything behind them as **comments**, which are not executed.
 
 Programming languages use different **data types** for different types of data. It's horses for courses with this, and unsurprisingly Python supports text, integers, floating point and Boolean data, to name a few.
 
-Let's try this out! In your notebook, type the following:
+For example:
 
 ```python
 x  = 1
 some_text = "Hello World!"
 some_boolean = False
-print(x)
-print(some_text)
-print(some_boolean)
 ```
 
-The first three lines assign values to three variables called `x`, `some_text`, `some_boolean`, and the last three lines use Python's built-in `print` function that prints them out. When you've typed this into a cell, press the `run cell, select below` button.
-
-We can perform mathematical calculations in Python using the basic operators +, -, \*, /, \*\*, %. Try it out in your notebook (no need to use the print function in this case):
+We can perform mathematical calculations in Python using the basic operators `+`, `-`, `*`, `/`, `**`, `%`.
 
 ```python
 4 + 5
@@ -125,20 +118,19 @@ In Python, the [standard order of operations](https://en.wikibooks.org/wiki/Pyth
 | ------------- |:-------------:| :-----|
 | **P**arentheses     | ( ... ) | Happening before operating on anything else.|
 | **E**xponents     | **  |  Exponents are evaluated before multiplication and division. |
-| **M**ultiplication and **D**ivision | * / |  Multiplication is rapid addition and must happen first. |
-| **A**ddition and **S**ubtraction | + -  |     |
+| **M**ultiplication and **D**ivision | * / | |
+| **A**ddition and **S**ubtraction | + -  | |
 
 Let's try it:
 
 ```python
 3 / 4 * 5  # First division and then multiplication
-3.0 / 4 * 5
-(3.0 / 4) * 4
+6 + 7 * 9
 2 ** 8
 10 % 7 # Remainder of a division
 ```
 
-The following table lists Python's comparison operators:
+The following table lists Python's comparison operators. Operations involving these return the Boolean values `True` or `False`, depending on whether the statement is true or not.
 
 | Name        | Syntax     |
 | :-------------: |:-------------|
@@ -149,31 +141,23 @@ The following table lists Python's comparison operators:
 |==	| Equal to|
 |!=	| Not equal to|
 
-You can check how these work in your notebook:
+You can combine logic statements using the keywords `and`, `or` and `not`. What will the following statements return?
 
 ```python
 2 == 3
 3 == 3
 2 < 3
 True == (False != True)
-```
-
-The output will be
-
-```python
-False
-True
-True
-True # Can you explain this?
+"Asterix" == "Obelix" or not("Idefix" == "Idefix")
 ```
 
 There are more operators, which you can read about [here](https://www.tutorialspoint.com/python/python_basic_operators.htm).
 
 ## Strings, Lists and Indexing
 
-The data stored in memory can be of different types; Python has five: **Numbers** and **Strings**, which we have encountered above, and also **List**, which we will touch upon below. (We won't have time to cover the [**Tuple**](https://www.tutorialspoint.com/python/python_tuples.htm) and [**Dictionary**](https://www.tutorialspoint.com/python/python_dictionary.htm) types.)
+The data stored in memory can be of different types; Python has five basic ones: **Numbers** and **Strings**, which we have encountered above, and also **List**, which we will touch upon below. (We won't have time to cover the [**Tuple**](https://www.tutorialspoint.com/python/python_tuples.htm) and [**Dictionary**](https://www.tutorialspoint.com/python/python_dictionary.htm) types.)
 
-You can check the data types in your notebook:
+Re-using the above:
 
 ```python
 type(number_of_hands) # Number
@@ -181,17 +165,18 @@ type(fingers_per_hand)
 type(some_text) # String
 ```
 
-**Strings** in Python are a set of characters represented by the quotation marks. Python allows either a pair of single or double quotes.
+**Strings** in Python are a set of characters grouped together in quotation marks. Python allows either a pair of single or double quotes.
 
 **Lists** are the most versatile data types in Python. A list contains items separated by commas and enclosed in square brackets `[ ... ]`. In Python, all the items belonging to a list can be of different data type.
 
-The values stored in a list can be accessed using the slice operator ([] and [:]) with indexes **starting at 0 at the beginning of the list**. The last point is a popular stumbling block, so beware!
+The values stored in a list can be accessed using the slice operator (`[]` and `[:]`) with indexes **starting at 0 at the beginning of the list**. That's a popular stumbling block, so beware!
 
-The plus (+) sign is the list concatenation operator, and the asterisk (\*) is the repetition operator.
+The plus sign is the list concatenation operator, and the asterisk (`*`) is the repetition operator.
 
 ```python
 list = [ 'abc', 12 , 2.23, 'john', 70.2 ]
 tinylist = [123, 'john']
+
 my_name = "John Doe"
 my_job = "technician"
 
@@ -223,18 +208,18 @@ As programmers, we set up “paths” for the program to follow. Can you tell th
 
 Conditional statements allow the program to react to new information _whilst it is running_ ("at runtime").
 
-We use the `if ...:`-`elif ...:`-`else:` construct for this scenario. For example --
+We use the `if (...):`-`elif (...):`-`else:` construct for this scenario. For example --
 
 ```python
 weight = input("Please input your weight in kg: ")
 height = input("Please input your height in m: ")
 # Need to convert strings to actual number types, using the float(...) function
 bmi = float(weight) / float(height) ** 2
-if bmi >=16 and bmi < 18.5:
+if (bmi >=16 and bmi < 18.5):
     print("Your BMI looks a bit low (underweight).")
-elif bmi >= 18.5 and bmi < 25:
+elif (bmi >= 18.5 and bmi < 25):
     print("Your BMI is considered healthy.")
-elif bmi >= 25 and bmi < 30:
+elif (bmi >= 25 and bmi < 30):
     print("Your BMI looks a bit large (overweight).")
 else:
     print("According to your BMI, you are severely over- or underweight.")
@@ -303,13 +288,13 @@ else:
     print('That\'s a lovely number.')
 ```
 
-**Important Note:** The output of the `input()` function is always a string, even if you input `'42'`. You need to change the type of this variable to `number` first if you want to "do maths" with it later. For this, use the `int()` or `float()` function, for example by calling `my_number = int(my_number)`.
+**The output of the `input()` function is always a string, even if you input `'42'`. You need to change the type of this variable to `number` first if you want to "do maths" with it later. For this, use the `int()` or `float()` function, for example by calling `my_number = int(my_number)`.**
 
 ## When things don't go to plan
 
 When your program has run down a dead end, Python does its best to help you out of it, by printing out a help message into the Terminal.
 
-Let's consider the following program:
+Consider the following program:
 
 ```python
 my_number = input("Please input a number: ")
@@ -328,7 +313,7 @@ Traceback (most recent call last):
 TypeError: unsupported operand type(s) for /: 'str' and 'int'
 ```
 
-Can someone explain what this "Traceback" is complaining about, and what we need to correct?
+Can someone explain what this "Traceback" is complaining about, and how to correct it?
 
 ## Mandatory exercises
 
@@ -441,18 +426,31 @@ Note how in this case we have used the syntax `from <library> import <thing>` to
 
 ### Using an ultrasonic distance sensor
 
-We made different experiences using gpiozero for this. So to keep things simple, we wrote a small library that you can use instead. It provides a `DistanceSensor` object.
+We couldn't get gpiozero's own `DistanceSensor` to give us any sensible distances! So we wrote a small library that you can use instead. Download the [ICAHSensor](https://raw.githubusercontent.com/till-h/ICAHHorizons_Y2PhysComp/master/session%201/ICAHSensor.py) and save it wherever you run the below program. It provides an `ICAHSensor` object.
+
+Wire the sensor as shown below.
 
 <p align="center">
     <img src="images/gpiozero_distance_sensor.png" alt="Connecting an LED" width="200">
     <figcaption align="center">Connecting an LED to the Pi</figcaption>
 </p>
 
+Then execute the following code.
 
+```python
+from ICAHSensor import ICAHSensor
+from time import sleep
 
-### Using a button
+sensor = ICAHSensor(23, 24)
 
-If you don't have a button at hand, you can simply short-circuit the wires
+while True:
+    print('Distance to nearest object is', sensor.get_distance, 'm')
+    sleep(0.5)
+```
+
+You can stop the program by pressing <kbd>CTRL</kbd>+<kbd>C</kbd>.
+
+You can find many more ways of using gpiozero [here](http://gpiozero.readthedocs.io/en/stable/recipes.html).
 
 ## Exercises
 
@@ -460,22 +458,15 @@ Feel free to team up for these challenges. We only have a limited amount of each
 
 1. Write a program that flashes an LED at a frequency set by the user.
 
-1. Using gpiozero's [PWMLED object](), write a program that repeatedly dims the LED from zero to full brightness, and immediately repeats. This is called a sawtooth wave.
+1. Using gpiozero's [PWMLED object](http://gpiozero.readthedocs.io/en/stable/recipes.html#led-with-variable-brightness), write a program that repeatedly dims the LED from zero to full brightness, abruptly re-sets it to zero brightness and repeats. This is called a sawtooth wave.
 
     <p align="center">
         <img src="images/Sawtooth.gif" alt="pin" width="300">
         <figcaption align="center">A sawtooth wave</figcaption>
     </p>
 
-1. Write a program that flashes an LED if it detects an object closer than 20cm from the distance sensor.
+1. Write a program that blinks an LED if it detects an object closer than 20cm from the distance sensor.
 
-1. Write a program that accepts user input like "HELLOCANYOUHEARME" (all upper case and no whitespace), and then flashes an LED to represent this message as a series of short and long LED flashes, representing the dots and dashes of Morse code. You will need to translate letters into dots and dashes according to the Morse alphabet. This can be found here, and the timing rules for Morse code here.
+1. Write a program that accepts user input like "HELLOCANYOUHEARME" (all upper case and no whitespace), and translates this into an LED flashing the corresponding Morse Code.
 
-
-
-
-
-
-```python
-
-```
+ You will need to translate letters into dots and dashes according to the Morse alphabet. It is best to use a Python dictionary to translate between letters and Morse symbols. This can be found [here](https://raw.githubusercontent.com/raspberrypilearning/morse-code-virtual-radio/master/code/morse_lookup.py), and the timing rules for International Morse Code [here](https://github.com/raspberrypilearning/morse-code-virtual-radio/blob/master/worksheet.md#decode-the-morse-as-you-go).

@@ -42,6 +42,5 @@ class ICAHSensor:
 			dist = dt * speed_of_sound / 2
 			self.hist.append(dist)
 
-
 		return sum(self.hist) / len(self.hist)
 	
