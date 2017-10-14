@@ -208,7 +208,7 @@ As programmers, we set up “paths” for the program to follow. Can you tell th
 
 Conditional statements allow the program to react to new information _whilst it is running_ ("at runtime").
 
-We use the `if (...):`-`elif (...):`-`else:` construct for this scenario. For example --
+We use the `if (...):`-`elif (...):`-`else:` construct for this scenario. For example &ndash;
 
 ```python
 weight = input("Please input your weight in kg: ")
@@ -343,7 +343,7 @@ Following on from the Introductory Session and your homework, can you solve the 
 ## Optional exercises
 
 1. Can you program Eratosthenes' sieve? Additional difficulty: Create a program that gives all prime numbers between a lower and an upper number, for example to find all primes between 10,000 and 11,000? [More information here](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
-1. Choose a library that can perform HTTP GET requests (there is one by that very name that looks promising, see below). Can you write a program that grabs the current temperature and wind speed for a user-input location -- find a suitable on-line source -- and displays it nicely in the terminal? If you're really keen and have had a peek at the next chapter, can you get it to light an led if the temperature is above 15°C?
+1. Choose a library that can perform HTTP GET requests (there is one by that very name that looks promising, see below). Can you write a program that grabs the current temperature and wind speed for a user-input location &ndash; find a suitable on-line source &ndash; and displays it nicely in the terminal? If you're really keen and have had a peek at the next chapter, can you get it to light an led if the temperature is above 15°C?
 1. You got as far as this? Ok, fair dos. Start work on an implementation of [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm). You will have to decide on a data structure to hold a graph, amongst many other considerations.
 
 # Chapter 3 - Physical Computing and the gpiozero library
@@ -470,3 +470,9 @@ Feel free to team up for these challenges. We only have a limited amount of each
 1. Write a program that accepts user input like "HELLOCANYOUHEARME" (all upper case and no whitespace), and translates this into an LED flashing the corresponding Morse Code.
 
    You will need to translate letters into dots and dashes according to the Morse alphabet. It is best to use a Python dictionary to translate between letters and Morse symbols. This can be found [here](https://raw.githubusercontent.com/raspberrypilearning/morse-code-virtual-radio/master/code/morse_lookup.py), and the timing rules for International Morse Code [here](https://github.com/raspberrypilearning/morse-code-virtual-radio/blob/master/worksheet.md#decode-the-morse-as-you-go).
+
+## Conclusion
+
+We hope you enjoyed this brisk walk through our topic. If things still seem a bit disjointed, fear not &ndash; during the next session, we will start joining up the dots and you will build a physical contraption controlled by your Raspberry Pi!
+
+Just make sure to keep track of the number on your Pi, so you can resume your work where you left it today.
