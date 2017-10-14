@@ -432,7 +432,7 @@ Wire the sensor as shown below.
 
 <p align="center">
     <img src="images/gpiozero_distance_sensor.png" alt="Connecting an LED" width="800">
-    <figcaption align="center">Connecting an LED to the Pi</figcaption>
+    <figcaption align="center">Connecting a distance sensor to the Pi</figcaption>
 </p>
 
 Then execute the following code.
