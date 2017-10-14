@@ -163,7 +163,7 @@ The output will be
 ```python
 False
 True
-False
+True
 True # Can you explain this?
 ```
 
@@ -192,26 +192,22 @@ The plus (+) sign is the list concatenation operator, and the asterisk (\*) is t
 ```python
 list = [ 'abc', 12 , 2.23, 'john', 70.2 ]
 tinylist = [123, 'john']
+my_name = "John Doe"
+my_job = "technician"
 
-print list            # Prints complete list
-print list[0]         # Prints first element of the list
-print list[1:3]       # Prints elements starting from 2nd till 3rd
-print list[2:]        # Prints elements starting from 3rd element
-print list[-1]        # Negative indexing: Prints the last element of the list
-print tinylist * 2    # Prints list two times
-print list + tinylist # Prints concatenated lists
-'abc' + 'fgb'         # Strings behave very similarly to lists, and concatenation works the same
+print(list)            # Prints complete list
+print(list[0])         # Prints first element of the list
+print(list[1:3])       # Prints elements starting from 2nd till 3rd
+print(list[2:])        # Prints elements starting from 3rd element
+print(list[-1])        # Negative indexing: Prints the last element of the list
+print(tinylist * 2)    # Prints list two times
+print(list + tinylist) # Prints concatenated lists
+
+print(my_name[0])      # Strings behave very similarly to lists
+print(my_name + my_job)# String concatenation
 ```
 
-## User input
-
-The following python code accepts user input and stores it in the variable `user_name`.
-
-```python
-user_name = ''
-user_name = input('Please tell me your name! ')
-print('Hello, ' + user_name + ', nice to meet you.')
-```
+Finally, you can use the `len(...)` function to find the length of a list or string.
 
 ## Control flow
 
@@ -294,6 +290,46 @@ print "Done."
 
 Functions are _defined_ using the `def` keyword, followed by the function name, and any arguments in brackets. Functions return a value using the `return` keyword.
 
+## User input
+
+The following python code accepts user input and stores it in the variable `my_number`.
+
+```python
+my_number = ''
+my_number = input('Please tell me a number! ')
+if (my_number == '42'):
+    print('Amazing. You\'re on to something!')
+else:
+    print('That\'s a lovely number.')
+```
+
+**Important Note:** The output of the `input()` function is always a string, even if you input `'42'`. You need to change the type of this variable to `number` first if you want to "do maths" with it later. For this, use the `int()` or `float()` function, for example by calling `my_number = int(my_number)`.
+
+## When things don't go to plan
+
+When your program has run down a dead end, Python does its best to help you out of it, by printing out a help message into the Terminal.
+
+Let's consider the following program:
+
+```python
+my_number = input("Please input a number: ")
+output = my_number / 2
+print(output)
+```
+
+Saving it as `test.py` and executing (inside the same folder where you saved it!) `python3 test.py`, the following will happen, assuming the user inputs "25" and presses <kbd>Enter</kbd>:
+
+```bash
+pi@raspberrypi ~ $ python3 test.py
+Please input a number: 25
+Traceback (most recent call last):
+  File "test.py", line 2, in <module>
+    output = my_number / 2
+TypeError: unsupported operand type(s) for /: 'str' and 'int'
+```
+
+Can someone explain what this "Traceback" is complaining about, and what we need to correct?
+
 ## Mandatory exercises
 
 Following on from the Introductory Session and your homework, can you solve the following tasks?
@@ -316,17 +352,18 @@ Following on from the Introductory Session and your homework, can you solve the 
    My number is 60
    ```
    
-1. String manipulation. Check whether a word is a palindrome. _Palindromes_ are words that read the same forwards and backwards, for example _madame_ or _racecar_.
+1. String manipulation. Check whether a word is a palindrome. _Palindromes_ are words that read the same forwards and backwards, for example _madam_ or _racecar_.
+
 
 ## Optional exercises
 
 1. Can you program Eratosthenes' sieve? Additional difficulty: Create a program that gives all prime numbers between a lower and an upper number, for example to find all primes between 10,000 and 11,000? [More information here](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
-1. Choose a library that can perform HTTP GET requests (there is one by that very name that looks promising). Can you write a program that grabs the current temperature and wind speed for a user-input location and displays it nicely in the terminal? With a view to the next Chapter, can you get it to light an led if the temperature is above 15°C?
+1. Choose a library that can perform HTTP GET requests (there is one by that very name that looks promising, see below). Can you write a program that grabs the current temperature and wind speed for a user-input location -- find a suitable on-line source -- and displays it nicely in the terminal? If you're really keen and have had a peek at the next chapter, can you get it to light an led if the temperature is above 15°C?
 1. You got as far as this? Ok, fair dos. Start work on an implementation of [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm). You will have to decide on a data structure to hold a graph, amongst many other considerations.
 
 # Chapter 3 - Physical Computing and the gpiozero library
 
-Ultimately, we want you to control a physical contraption with your Raspberry Pi. For this, we'll use the golden General Purpose Input/Output (GPIO) pins on the side of your Pi. This layout is shown below.
+Ultimately, we want you to control a physical contraption with your Raspberry Pi. For this, we'll use the General Purpose Input/Output (GPIO) pins on the side of your Pi. Their layout is shown below. Don't worry too much about it all for now, we will show you how to connect things up. Just one thing to remember: **Never connect a 5V pin directly to any other input pin of the Raspberry Pi, or worse the Ground pin!**
 
 <p align="center">
     <img src="images/RPi_pin_layout.svg" alt="pin" width="200">
@@ -335,7 +372,87 @@ Ultimately, we want you to control a physical contraption with your Raspberry Pi
 
 ## Working with libraries
 
-We've come across them before, but here is a reminder. To avoid "re-inventing the wheel", we can use existing software inside our programs. This comes in the form of **libraries**.
+You've seen the `import` statement in the last session, when we imported the newer `print()` function into Python2. We also used `import numpy as np` and later `np.pi` to access the value of the mathematical constant &pi;.
+
+The whole point is to avoid "re-inventing the wheel" by using existing software inside our programs. We do this by importing **software libraries**.
+
+Here's an example for how powerful this idea is. Imagine you want to retrieve the raw HTML content from a website. Instead of manually coding everything up from scratch, we can do the following:
+
+```python
+import requests
+r = requests.get('http://example.com') # Using everyone's favourite test domain!
+print(r.content)
+```
+
+A whopping 3 lines of code to traverse the network stack, perform a HTTP GET request, await a response, save it in a variable called `r` and display it!
+
+Things contained in libraries can be retrieved by using the dot operator `.`, such as in `requests.get`.
+
+## Using the gpiozero library
+
+The gpiozero library enables us to control the GPIO pins on our Pi. We start off with `import gpiozero`.
+
+### Switching an LED
+
+Connect an LED via a resistor to the Ground (GND) and GPIO pin 17 (GP17). Note that the shorter wire of the LED needs to connect to ground.
+
+<p align="center">
+    <img src="images/gpiozero_led.png" alt="Connecting an LED" width="200">
+    <figcaption align="center">Connecting an LED to the Pi</figcaption>
+</p>
+
+Run:
+
+```python
+import gpiozero
+import time
+
+red = gpiozero.LED(17)
+
+while True:
+    red.on()
+    time.sleep(1)
+    red.off()
+    time.sleep(1)
+```
+
+Note how we also imported the `time` library to allow the program to sleep for one second.
+
+### Dimming an LED
+
+Keep the same connection, and run the below code. Note how we use the PWMLED object to control the LED. PWM stands for [**P**ulse **W**idth **M**odulation](https://www.arduino.cc/en/uploads/Tutorial/pwm.gif), which rapidly blinks the LED and controls its brightness by switching it on and off for different amounts of times.
+
+```python
+from gpiozero import PWMLED
+from time import sleep
+
+led = PWMLED(17)
+
+while True:
+    led.value = 0  # off
+    sleep(1)
+    led.value = 0.5  # half brightness
+    sleep(1)
+    led.value = 1  # full brightness
+    sleep(1)
+```
+
+Note how in this case we have used the syntax `from <library> import <thing>` to import the `PWMLED` and `sleep` functions directly. This allowed us to skip repeatedly writing `time.sleep()` etc.
+
+### Using an ultrasonic distance sensor
+
+We made different experiences using gpiozero for this. So to keep things simple, we wrote a small library that you can use instead. It provides a `DistanceSensor` object.
+
+<p align="center">
+    <img src="images/gpiozero_distance_sensor.png" alt="Connecting an LED" width="200">
+    <figcaption align="center">Connecting an LED to the Pi</figcaption>
+</p>
+
+
+
+### Using a button
+
+If you don't have a button at hand, you can simply short-circuit the wires
 
 ## Exercises
 
