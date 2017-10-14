@@ -382,7 +382,7 @@ The gpiozero library enables us to control the GPIO pins on our Pi. We start off
 Connect an LED via a resistor to the Ground (GND) and GPIO pin 17 (GP17). Note that the shorter wire of the LED needs to connect to ground.
 
 <p align="center">
-    <img src="images/gpiozero_led.png" alt="Connecting an LED" width="200">
+    <img src="images/gpiozero_led.png" alt="Connecting an LED" width="400">
     <figcaption align="center">Connecting an LED to the Pi</figcaption>
 </p>
 
@@ -431,7 +431,7 @@ We couldn't get gpiozero's own `DistanceSensor` to give us any sensible distance
 Wire the sensor as shown below.
 
 <p align="center">
-    <img src="images/gpiozero_distance_sensor.png" alt="Connecting an LED" width="200">
+    <img src="images/gpiozero_distance_sensor.png" alt="Connecting an LED" width="400">
     <figcaption align="center">Connecting an LED to the Pi</figcaption>
 </p>
 
@@ -469,4 +469,4 @@ Feel free to team up for these challenges. We only have a limited amount of each
 
 1. Write a program that accepts user input like "HELLOCANYOUHEARME" (all upper case and no whitespace), and translates this into an LED flashing the corresponding Morse Code.
 
- You will need to translate letters into dots and dashes according to the Morse alphabet. It is best to use a Python dictionary to translate between letters and Morse symbols. This can be found [here](https://raw.githubusercontent.com/raspberrypilearning/morse-code-virtual-radio/master/code/morse_lookup.py), and the timing rules for International Morse Code [here](https://github.com/raspberrypilearning/morse-code-virtual-radio/blob/master/worksheet.md#decode-the-morse-as-you-go).
+   You will need to translate letters into dots and dashes according to the Morse alphabet. It is best to use a Python dictionary to translate between letters and Morse symbols. This can be found [here](https://raw.githubusercontent.com/raspberrypilearning/morse-code-virtual-radio/master/code/morse_lookup.py), and the timing rules for International Morse Code [here](https://github.com/raspberrypilearning/morse-code-virtual-radio/blob/master/worksheet.md#decode-the-morse-as-you-go).
