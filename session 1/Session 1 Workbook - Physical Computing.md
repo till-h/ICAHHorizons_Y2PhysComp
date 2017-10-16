@@ -73,7 +73,7 @@ Hint: You can use tab completion. For example, when typing ```cd```+<kbd>Tab</kb
 
 Long story short - the Terminal is much like a text-based file explorer, bolted together with a powerful general "command centre" for your computer. You can also start the usual programs from within the terminal. Just type ```chromium```+<kbd>Enter</kbd>.
 
-# Chapter 1 - Consolidating our Python skills
+# Recap of the Introductory Session
 
 First off, are there any questions from the last session or the homework?
 
@@ -346,7 +346,7 @@ Following on from the Introductory Session and your homework, can you solve the 
 1. Choose a library that can perform HTTP GET requests (there is one by that very name that looks promising, see below). Can you write a program that grabs the current temperature and wind speed for a user-input location &ndash; find a suitable on-line source &ndash; and displays it nicely in the terminal? If you're really keen and have had a peek at the next chapter, can you get it to light an led if the temperature is above 15°C?
 1. You got as far as this? Ok, fair dos. Start work on an implementation of [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm). You will have to decide on a data structure to hold a graph, amongst many other considerations.
 
-# Chapter 3 - Physical Computing and the gpiozero library
+# Physical Computing and the gpiozero library
 
 Ultimately, we want you to control a physical contraption with your Raspberry Pi. For this, we'll use the General Purpose Input/Output (GPIO) pins on the side of your Pi. Their layout is shown below. Don't worry too much about it all for now, we will show you how to connect things up. Just one thing to remember: **Never connect a 5V pin directly to any other input pin of the Raspberry Pi, or worse the Ground pin!**
 
@@ -428,10 +428,10 @@ Note how in this case we have used the syntax `from <library> import <thing>` to
 
 We couldn't get gpiozero's own `DistanceSensor` to give us any sensible distances! So we wrote a small library that you can use instead. Download the [ICAHSensor](https://raw.githubusercontent.com/till-h/ICAHHorizons_Y2PhysComp/master/session%201/ICAHSensor.py) and save it wherever you run the below program. It provides an `ICAHSensor` object.
 
-Wire the sensor as shown below.
+Wire the sensor as shown below. For this we need a breadboard, because the sensor's "Echo" returns a 5V signal, which is too much for the Pi's GPIO pins. To solve this, we have to build a small [voltage divider](https://en.wikipedia.org/wiki/Voltage_divider) to bring the signal from 5V down to 3.3V.
 
 <p align="center">
-    <img src="images/gpiozero_distance_sensor.png" alt="Connecting an LED" width="800">
+    <img src="images/gpiozero_distance_sensor.svg" alt="Connecting an ultrasonic distance sensor" width="800">
     <figcaption align="center">Connecting a distance sensor to the Pi</figcaption>
 </p>
 
@@ -441,7 +441,7 @@ Then execute the following code.
 from ICAHSensor import ICAHSensor
 from time import sleep
 
-sensor = ICAHSensor(23, 24)
+sensor = ICAHSensor(4, 18)
 
 while True:
     print('Distance to nearest object is', sensor.get_distance, 'm')
@@ -470,6 +470,8 @@ Feel free to team up for these challenges. We only have a limited amount of each
 1. Write a program that accepts user input like "HELLOCANYOUHEARME" (all upper case and no whitespace), and translates this into an LED flashing the corresponding Morse Code.
 
    You will need to translate letters into dots and dashes according to the Morse alphabet. It is best to use a Python dictionary to translate between letters and Morse symbols. This can be found [here](https://raw.githubusercontent.com/raspberrypilearning/morse-code-virtual-radio/master/code/morse_lookup.py), and the timing rules for International Morse Code [here](https://github.com/raspberrypilearning/morse-code-virtual-radio/blob/master/worksheet.md#decode-the-morse-as-you-go).
+
+1. Write a program that makes use of a line sensor (we have a few here today, so you will need to team up, depending on who is at this stage) and notifies the user whenever a black line is detected. Try to avoid repeatedly printing out whatever the line sensor sees. Instead, only notify the user when there is a change (no line &#8646; line). You will want to [wire it up correctly and familiarise yourself with the LineSensor interface](http://gpiozero.readthedocs.io/en/stable/api_input.html#line-sensor-trct5000) in gpiozero.
 
 ## Conclusion
 

@@ -1,6 +1,0 @@
-import gpiozero
-from time import time
-trig = gpiozero.SimpleOutputDevice(4)
-echo = gpiozero.SimpleInputDevice(18)
-
-trig.on()
