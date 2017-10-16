@@ -26,12 +26,12 @@ class ICAHSensor:
 		using the filter() function or similar.
 		'''
 
-		del(hist[:])
+		del(self.hist[:])
 
 		for i in range(10):
 
 			self.trig.on()
-			sleep(ping_dur)
+			sleep(self.ping_dur)
 			self.trig.off()
 
 			self.echo.wait_for_active()
@@ -39,7 +39,7 @@ class ICAHSensor:
 			self.echo.wait_for_inactive()
 			dt = time() - t0
 
-			dist = dt * speed_of_sound / 2
+			dist = dt * ICAHSensor.speed_of_sound / 2
 			self.hist.append(dist)
 
 		return sum(self.hist) / len(self.hist)

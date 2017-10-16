@@ -10,13 +10,15 @@ Welcome back to the Physical Computing Theme!
 
 This session will be a workshop with lots of practical exercises that you can work through at your own pace. This is to ensure that you all gain something from this course, independent of your current Python and general programming knowledge.
 
-We will work through this sheet as follows. For each of the following chapters, the tasks are grouped into **ascending order of difficulty**. Please attempt all tasks within the Chapter, starting with the easiest, until we reach a **Checkpoint** at which I will ask you to move on to the next Chapter.
+We will work through this sheet as follows. For each of the following chapters, the tasks are grouped into **ascending order of difficulty**. Please attempt all tasks under **Mandatory exercises**, and if you have time before we move on, have fun with the **Optional exercises**.
 
-We will also cover some basics together as a class at the beginning of each chapter.
+**One plea**: If you are done earlier than your neighbour, please help us out by offering your help to them. Explaining something is a sure-fire way to really understand it yourself!
 
 # Homework for the next Session
 
-If you have exercises left before wrapping up today's session, please finish them as homework for the next session. **This is mandatory.** For assessing your homework, we expect a coded solution. However, if you really get stuck with an exercise, this is not a problem, and instead of program code, we need you to explain as well as you can where and how you got stuck. It is just as useful being able to describe what the problem is as it is to solve it.
+Any unfinished Mandatory Exercises from the Recap chapter will be your homework.
+
+ **This is mandatory.** For assessing your homework, we expect a coded solution. However, if you really get stuck with an exercise, this is not a problem, and instead of program code, we need you to explain as well as you can where and how you got stuck. It is just as useful being able to describe what the problem is as it is to solve it.
 
 # Writing Python programs on Raspberry Pi
 
@@ -342,13 +344,15 @@ Following on from the Introductory Session and your homework, can you solve the 
 
 ## Optional exercises
 
-1. Can you program Eratosthenes' sieve? Additional difficulty: Create a program that gives all prime numbers between a lower and an upper number, for example to find all primes between 10,000 and 11,000? [More information here](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
 1. Choose a library that can perform HTTP GET requests (there is one by that very name that looks promising, see below). Can you write a program that grabs the current temperature and wind speed for a user-input location &ndash; find a suitable on-line source &ndash; and displays it nicely in the terminal? If you're really keen and have had a peek at the next chapter, can you get it to light an led if the temperature is above 15°C?
-1. You got as far as this? Ok, fair dos. Start work on an implementation of [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm). You will have to decide on a data structure to hold a graph, amongst many other considerations.
+
+1. Can you program Eratosthenes' sieve? Additional difficulty: Create a program that gives all prime numbers between a lower and an upper number, for example to find all primes between 10,000 and 11,000? [More information here](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
+
+1. (You got as far as this? Ok, fair dos. Start work on an implementation of [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm). You will have to decide on a data structure to hold a graph, amongst many other considerations.)
 
 # Physical Computing and the gpiozero library
 
-Ultimately, we want you to control a physical contraption with your Raspberry Pi. For this, we'll use the General Purpose Input/Output (GPIO) pins on the side of your Pi. Their layout is shown below. Don't worry too much about it all for now, we will show you how to connect things up. Just one thing to remember: **Never connect a 5V pin directly to any other input pin of the Raspberry Pi, or worse the Ground pin!**
+Ultimately, we want you to control a physical contraption with your Raspberry Pi. For this, we'll use the General Purpose Input/Output (GPIO) pins on the side of your Pi. Their layout is shown below. Don't worry too much about it all for now, we will show you how to connect things up. Just one thing to remember: **Never connect a 5V pin directly to any other pin of the Raspberry Pi, particularly the Ground pin!**
 
 <p align="center">
     <img src="images/RPi_pin_layout.svg" alt="pin" width="200">
@@ -431,7 +435,7 @@ We couldn't get gpiozero's own `DistanceSensor` to give us any sensible distance
 Wire the sensor as shown below. For this we need a breadboard, because the sensor's "Echo" returns a 5V signal, which is too much for the Pi's GPIO pins. To solve this, we have to build a small [voltage divider](https://en.wikipedia.org/wiki/Voltage_divider) to bring the signal from 5V down to 3.3V.
 
 <p align="center">
-    <img src="images/gpiozero_distance_sensor.svg" alt="Connecting an ultrasonic distance sensor" width="800">
+    <img src="images/gpiozero_distance_sensor.png" alt="Connecting an ultrasonic distance sensor" width="800">
     <figcaption align="center">Connecting a distance sensor to the Pi</figcaption>
 </p>
 
@@ -444,7 +448,7 @@ from time import sleep
 sensor = ICAHSensor(4, 18)
 
 while True:
-    print('Distance to nearest object is', sensor.get_distance, 'm')
+    print('Distance to nearest object is', sensor.get_distance(), 'm')
     sleep(0.5)
 ```
 
