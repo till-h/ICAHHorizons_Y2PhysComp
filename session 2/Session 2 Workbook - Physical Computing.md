@@ -26,7 +26,7 @@ It has the following capabilities:
 
 * **Driving around!** The two wheels on either side can be independently controlled, so you can make it go forward, backward and steer left or right, with either just one wheel spinning, or both spinning in opposite direction.
 
-* **Blinking an LED!** Woops woops. This is a good way to check the functioning of the GPIO pins in general. We'll get to that in the first exercise.
+* **Blinking an LED!** (Yay...) This is a good way to check the functioning of the GPIO pins in general. We'll get to that in the first exercise.
 
 * **Detecting a forward-facing distance.** This uses the HC-SR04 ultrasound sensor we met in the last session. Note that it detects a distance straight ahead of the robot.
 
@@ -80,18 +80,18 @@ We won't be focussed on the electronic setup of the robot in this session, but i
    You will be using the pins <TODO> for the Trig signal, and <TODO> for the Echo signal. A sample flowchart for the robot control is shown below - but do try out your own ideas!
 
    <p align="center">
-      <img src="images/obstacle_flowchart.png" alt="Obstacle avoidance" width="800">
+      <img src="images/obstacle_flowchart.png" alt="Obstacle avoidance" width="600">
    </p>
 
 1. Stopping the robot when it crosses a black line.
- <p align="center"><img src="images/TCRT5000.jpg" alt="The TCRT5000 line sensor module" width="800"></p>
+ <p align="center"><img src="images/TCRT5000.jpg" alt="The TCRT5000 line sensor module" width="300"></p>
  Instead of the ultrasonic sensor, you can use what's called a line sensor to detect an abrupt change in brightness of the ground. If we use this together with a black marker tape stuck onto a white paper, or similar, it is the perfect way to detect markings on the ground. Let's use it to stop if our robot crosses a black line! 
  In order to use the line sensor, you need to import the `LineSensor` object from gpiozero.
 
    ```python
    from gpiozero import LineSensor
    
-   sensor = LineSensor(21) # connecting the sensor's data pin to GPIO pin 21
+   sensor = LineSensor(21) # if we connect the sensor's data pin to GPIO pin 21
    
    while True:
    	 if sensor.pin.state:
@@ -100,8 +100,13 @@ We won't be focussed on the electronic setup of the robot in this session, but i
    	     print("Line detected.")
    ```
 
+   Physically, you connect it up as follows:
+
+   * Connect the sensor's VCC to a 3V3 pin on the Pi.
+   * Connect the sensor's GND to a Ground pin on the Pi.
+   * Connect the sensor's OUT to a free GPIO pin on the Pi.
+
    Again, feel free to change this to a more interesting behaviour, if you have time.
 
-
 1. Driving the robot around in a black square.
- Finally, you can use this to drive the robot around within a box. Can you make it go as closely as possible around the inside of the perimeter? I.e., constantly keep probing to one side?
+ Finally, you can use the previous exercise to drive the robot around within a box. Can you make it go as closely as possible around the inside of the perimeter? I.e., constantly keep probing to one side?
