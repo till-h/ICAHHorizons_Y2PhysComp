@@ -18,6 +18,7 @@ So we've been busy this last week to assemble you a little vehicle. May we intro
 
 <p align="center">
     <img src="images/bot.png" alt="ICAH-101 bot" width="800">
+    <figcaption align="center">The ICAH-101 bot</figcaption>
 </p>
 
 For the rest of this theme, you will be working with this robot.
@@ -36,7 +37,7 @@ We won't be focussed on the electronic setup of the robot in this session, but i
 
 # Exercises
 
-1. <p align="center"><img src="images/led.png" alt="LED layout" width="800"></p> Have a look at your robot and [the Raspberry Pi pin layout](http://gpiozero.readthedocs.io/en/stable/_images/pin_layout.svg) (the bottom is where the USB ports are, and it is also on your desktop background). Find out which pin the LED is connected to and get it to blink. If you're stuck, look back at the first session's workbook!
+1. <p align="center"><img src="images/led.png" alt="LED layout" width="800"><figcaption align="center">The LED connection on the robot</figcaption></p> Have a look at your robot and [the Raspberry Pi pin layout](http://gpiozero.readthedocs.io/en/stable/_images/pin_layout.svg) (the bottom is where the USB ports are, and it is also on your desktop background). Find out which pin the LED is connected to and get it to blink. If you're stuck, look back at the first session's workbook!
 
 1. Driving the robot around.
  gpiozero makes it very easy to drive the robot around. (Remember the reason from last session why we use software libraries in the first place!) Look at the below sample code:
@@ -81,6 +82,7 @@ We won't be focussed on the electronic setup of the robot in this session, but i
 
    <p align="center">
       <img src="images/obstacle_flowchart.png" alt="Obstacle avoidance" width="600">
+      <figcaption align="center">A possible way to deal with obstacles.</figcaption>
    </p>
 
 1. Stopping the robot when it crosses a black line.
@@ -109,4 +111,4 @@ We won't be focussed on the electronic setup of the robot in this session, but i
    Again, feel free to change this to a more interesting behaviour, if you have time.
 
 1. Driving the robot around in a black square.
- Finally, you can use the previous exercise to drive the robot around within a box. Can you make it go as closely as possible around the inside of the perimeter? I.e., constantly keep probing to one side?
+Finally, you can use the previous exercise to drive the robot around within a box. Can you make it go as closely as possible around the inside of the perimeter? I.e., constantly keep probing to one side?
