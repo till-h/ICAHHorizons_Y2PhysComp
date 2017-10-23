@@ -63,44 +63,44 @@ We won't be focussed on the electronic setup of the robot in this session, but i
    my_robot.backward()
    ```
 
- The above creates an instance of gpiozero's `Robot` object, called `my_robot`. As we create it, we tell it the correct GPIO pins for controlling the left and the right motor.
+   The above creates an instance of gpiozero's `Robot` object, called `my_robot`. As we create it, we tell it the correct GPIO pins for controlling the left and the right motor.
 
- Armed with this knowledge, `my_robot` knows exactly what signals to put out onto the pins if it is asked to move the robot forward, backward, left or right. The great thing is that we can leave the nitty-gritty of _how_ to move in either direction to the internal workings of the gpiozero library. It just presents us with handy shortcut commands called left(), right(), forward() and backward().
+   Armed with this knowledge, `my_robot` knows exactly what signals to put out onto the pins if it is asked to move the robot forward, backward, left or right. The great thing is that we can leave the nitty-gritty of _how_ to move in either direction to the internal workings of the gpiozero library. It just presents us with handy shortcut commands called left(), right(), forward() and backward().
 
- To do a motion at less than full speed, you can give it a speed parameter. For example `my_robot.forward(0.5)` moves the robot forward at half of the full speed.
+   To do a motion at less than full speed, you can give it a speed parameter. For example `my_robot.forward(0.5)` moves the robot forward at half of the full speed.
 
- You can find all the commands that you can send to the Robot object [here](http://gpiozero.readthedocs.io/en/stable/api_boards.html?highlight=robot#robot). Note that there is a handy `stop()` function that saves you from writing things like `my_robot.forward(0)`.
+   You can find all the commands that you can send to the Robot object [here](http://gpiozero.readthedocs.io/en/stable/api_boards.html?highlight=robot#robot). Note that there is a handy `stop()` function that saves you from writing things like `my_robot.forward(0)`.
 
 1. Moving out of the way when there is an obstacle in front of the robot.
  In this exercise, we stop the robot when there is an obstacle in front of it, using the ultrasonic distance sensor. Optionally, you can set it on a new course until it detects another obstacle, thus going on until its battery is depleted.
 
- Remember [the distance sensing code from last time](https://github.com/till-h/ICAHHorizons_Y2PhysComp/blob/master/session%201/Session%201%20Workbook%20-%20Physical%20Computing.md#using-an-ultrasonic-distance-sensor)? You will first need to wire up the sensor, including the voltage divider, as per the last session's instructions. We will once more give you a "large" and a "small" resistor to build the voltage divider.  
- We have a bigger breadboard this time to set things up on, and the front part of it is left empty for you to set up the wires for the distance sensor.
+   Remember [the distance sensing code from last time](https://github.com/till-h/ICAHHorizons_Y2PhysComp/blob/master/session%201/Session%201%20Workbook%20-%20Physical%20Computing.md#using-an-ultrasonic-distance-sensor)? You will first need to wire up the sensor, including the voltage divider, as per the last session's instructions. We will once more give you a "large" and a "small" resistor to build the voltage divider.  
+   We have a bigger breadboard this time to set things up on, and the front part of it is left empty for you to set up the wires for the distance sensor.
 
- You will be using the pins <TODO> for the Trig signal, and <TODO> for the Echo signal. A sample flowchart for the robot control is shown below - but do try out your own ideas!
+   You will be using the pins <TODO> for the Trig signal, and <TODO> for the Echo signal. A sample flowchart for the robot control is shown below - but do try out your own ideas!
 
- <p align="center">
-    <img src="images/obstacle_flowchart.png" alt="Obstacle avoidance" width="800">
- </p>
+   <p align="center">
+      <img src="images/obstacle_flowchart.png" alt="Obstacle avoidance" width="800">
+   </p>
 
 1. Stopping the robot when it crosses a black line.
  <p align="center"><img src="images/TCRT5000.jpg" alt="The TCRT5000 line sensor module" width="800"></p>
  Instead of the ultrasonic sensor, you can use what's called a line sensor to detect an abrupt change in brightness of the ground. If we use this together with a black marker tape stuck onto a white paper, or similar, it is the perfect way to detect markings on the ground. Let's use it to stop if our robot crosses a black line! 
  In order to use the line sensor, you need to import the `LineSensor` object from gpiozero.
 
- ```python
- from gpiozero import LineSensor
+   ```python
+   from gpiozero import LineSensor
+   
+   sensor = LineSensor(21) # connecting the sensor's data pin to GPIO pin 21
+   
+   while True:
+   	 if sensor.pin.state:
+   	 	 print("No line detected.")
+   	 else:
+   	     print("Line detected.")
+   ```
 
- sensor = LineSensor(21) # connecting the sensor's data pin to GPIO pin 21
-
- while True:
- 	 if sensor.pin.state:
- 	 	 print("No line detected.")
- 	 else:
- 	     print("Line detected.")
- ```
-
- Again, feel free to change this to a more interesting behaviour, if you have time.
+   Again, feel free to change this to a more interesting behaviour, if you have time.
 
 
 1. Driving the robot around in a black square.
