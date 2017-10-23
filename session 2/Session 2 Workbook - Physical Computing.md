@@ -14,10 +14,10 @@ Having formed teams, let's jump right in at the deep end!
 
 # May we introduce...
 
-So we've been busy this last week to assemble you a little vehicle. May we introduce the **ICAH-101 bot**. It is very heavily based on Imperial College Robotics Society's [Robotics 101 course](http://101.icrs.io/), which you should definitely read up on here, if you want to find out more about how it all works.
+So we've been busy this last week to assemble you a little vehicle. May we introduce the **ICAH-101 bot**. It is very heavily based on Imperial College Robotics Society's [Robotics 101 course](http://101.icrs.io/), which you should definitely read up on here if you want to find out more about how it all works "under the bonnet".
 
 <p align="center">
-    <img src="images/bot.png" alt="ICAHLOGO" width="800">
+    <img src="images/bot.png" alt="ICAH-101 bot" width="800">
 </p>
 
 For the rest of this theme, you will be working with this robot.
@@ -30,7 +30,7 @@ It has the following capabilities:
 
 * **Detecting a forward-facing distance.** This uses the HC-SR04 ultrasound sensor we met in the last session. Note that it detects a distance straight ahead of the robot.
 
-* Detecting brightness changes in the floor surface, using 2 TCRT5000 **line sensors**. Why are they called line sensors? Because a natural application for reading brightness changes is to follow a black line on bright ground.
+* **Detecting brightness changes in the floor surface**, using 2 TCRT5000 **line sensors**. Why are they called line sensors? Because a natural application for reading brightness changes is to follow a black line on bright ground.
 
 We won't be focussed on the electronic setup of the robot in this session, but if you want to find out more about how we actually control the motors, do have a look at the [explanation in the 101 course](http://101.icrs.io/lesson-2) ("Motor Driver").
 
@@ -40,27 +40,28 @@ We won't be focussed on the electronic setup of the robot in this session, but i
 
 1. Driving the robot around.
  gpiozero makes it very easy to drive the robot around. (Remember the reason from last session why we use software libraries in the first place!) Look at the below sample code:
- '''python
- from gpiozero import Robot
-
- leftPins = (21, 16)
- rightPins = (12, 1)
-
- my_robot = Robot(left=leftPins, right=rightPins)
-
- # move around
- my_robot.forward()
- sleep(2)
- my_robot.backward()
- sleep(2)
- my_robot.left()
- sleep(1)
- my_robot.forward()
- sleep(2)
- my_robot.right()
- sleep(1)
- my_robot.backward()
- '''
+   
+   ```python
+   from gpiozero import Robot
+   
+   leftPins = (21, 16)
+   rightPins = (12, 1)
+   
+   my_robot = Robot(left=leftPins, right=rightPins)
+   
+   # move around
+   my_robot.forward()
+   sleep(2)
+   my_robot.backward()
+   sleep(2)
+   my_robot.left()
+   sleep(1)
+   my_robot.forward()
+   sleep(2)
+   my_robot.right()
+   sleep(1)
+   my_robot.backward()
+   ```
 
  The above creates an instance of gpiozero's `Robot` object, called `my_robot`. As we create it, we tell it the correct GPIO pins for controlling the left and the right motor.
 
@@ -87,7 +88,7 @@ We won't be focussed on the electronic setup of the robot in this session, but i
  Instead of the ultrasonic sensor, you can use what's called a line sensor to detect an abrupt change in brightness of the ground. If we use this together with a black marker tape stuck onto a white paper, or similar, it is the perfect way to detect markings on the ground. Let's use it to stop if our robot crosses a black line! 
  In order to use the line sensor, you need to import the `LineSensor` object from gpiozero.
 
- '''python
+ ```python
  from gpiozero import LineSensor
 
  sensor = LineSensor(21) # connecting the sensor's data pin to GPIO pin 21
@@ -97,7 +98,7 @@ We won't be focussed on the electronic setup of the robot in this session, but i
  	 	 print("No line detected.")
  	 else:
  	     print("Line detected.")
- '''
+ ```
 
  Again, feel free to change this to a more interesting behaviour, if you have time.
 
