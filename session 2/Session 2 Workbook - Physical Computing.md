@@ -17,7 +17,7 @@ Having formed teams, let's jump right in at the deep end!
 So we've been busy this last week to assemble you a little vehicle. May we introduce the **ICAH-101 bot**. It is very heavily based on Imperial College Robotics Society's [Robotics 101 course](http://101.icrs.io/), which you should definitely read up on here if you want to find out more about how it all works "under the bonnet".
 
 <p align="center">
-    <img src="images/bot.png" alt="ICAH-101 bot" width="800">
+    <img src="images/bot.jpg" alt="ICAH-101 bot" width="800">
     <figcaption align="center">The ICAH-101 bot</figcaption>
 </p>
 
@@ -37,7 +37,7 @@ We won't be focussed on the electronic setup of the robot in this session, but i
 
 # Exercises
 
-1. <p align="center"><img src="images/led.png" alt="LED layout" width="800"><figcaption align="center">The LED connection on the robot</figcaption></p> Have a look at your robot and [the Raspberry Pi pin layout](http://gpiozero.readthedocs.io/en/stable/_images/pin_layout.svg) (the bottom is where the USB ports are, and it is also on your desktop background). Find out which pin the LED is connected to and get it to blink. If you're stuck, look back at the first session's workbook!
+1. <p align="center"><img src="images/led.jpg" alt="LED layout" width="800"><figcaption align="center">The LED connection on the robot</figcaption></p> Have a look at your robot and [the Raspberry Pi pin layout](http://gpiozero.readthedocs.io/en/stable/_images/pin_layout.svg) (the bottom is where the USB ports are, and it is also on your desktop background). Find out which pin the LED is connected to and get it to blink. If you're stuck, look back at the first session's workbook!
 
 2. Driving the robot around.
  gpiozero makes it very easy to drive the robot around. (Remember the reason from last session why we use software libraries in the first place!) Look at the below sample code:
