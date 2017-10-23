@@ -49,4 +49,3 @@ class ICAHSensor:
 			self.hist.append(dist)
 
 		return sum(self.hist) / len(self.hist)
-	
