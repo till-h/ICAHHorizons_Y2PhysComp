@@ -39,7 +39,7 @@ We won't be focussed on the electronic setup of the robot in this session, but i
 
 1. <p align="center"><img src="images/led.png" alt="LED layout" width="800"><figcaption align="center">The LED connection on the robot</figcaption></p> Have a look at your robot and [the Raspberry Pi pin layout](http://gpiozero.readthedocs.io/en/stable/_images/pin_layout.svg) (the bottom is where the USB ports are, and it is also on your desktop background). Find out which pin the LED is connected to and get it to blink. If you're stuck, look back at the first session's workbook!
 
-1. Driving the robot around.
+2. Driving the robot around.
  gpiozero makes it very easy to drive the robot around. (Remember the reason from last session why we use software libraries in the first place!) Look at the below sample code:
    
    ```python
@@ -72,7 +72,7 @@ We won't be focussed on the electronic setup of the robot in this session, but i
 
    You can find all the commands that you can send to the Robot object [here](http://gpiozero.readthedocs.io/en/stable/api_boards.html?highlight=robot#robot). Note that there is a handy `stop()` function that saves you from writing things like `my_robot.forward(0)`.
 
-1. Moving out of the way when there is an obstacle in front of the robot.
+3. Moving out of the way when there is an obstacle in front of the robot.
  In this exercise, we stop the robot when there is an obstacle in front of it, using the ultrasonic distance sensor. Optionally, you can set it on a new course until it detects another obstacle, thus going on until its battery is depleted.
 
    Remember [the distance sensing code from last time](https://github.com/till-h/ICAHHorizons_Y2PhysComp/blob/master/session%201/Session%201%20Workbook%20-%20Physical%20Computing.md#using-an-ultrasonic-distance-sensor)? You will first need to wire up the sensor, including the voltage divider, as per the last session's instructions. We will once more give you a "large" and a "small" resistor to build the voltage divider.  
@@ -85,8 +85,8 @@ We won't be focussed on the electronic setup of the robot in this session, but i
       <figcaption align="center">A possible way to deal with obstacles.</figcaption>
    </p>
 
-1. Stopping the robot when it crosses a black line.
- <p align="center"><img src="images/TCRT5000.jpg" alt="The TCRT5000 line sensor module" width="300"></p>
+4. Stopping the robot when it crosses a black line.
+ <p align="center"><img src="images/TCRT5000.jpg" alt="The TCRT5000 line sensor module" width="300"><figcaption align="center">The TCRT5000 line sensor module</figcaption></p>
  Instead of the ultrasonic sensor, you can use what's called a line sensor to detect an abrupt change in brightness of the ground. If we use this together with a black marker tape stuck onto a white paper, or similar, it is the perfect way to detect markings on the ground. Let's use it to stop if our robot crosses a black line! 
  In order to use the line sensor, you need to import the `LineSensor` object from gpiozero.
 
@@ -110,5 +110,5 @@ We won't be focussed on the electronic setup of the robot in this session, but i
 
    Again, feel free to change this to a more interesting behaviour, if you have time.
 
-1. Driving the robot around in a black square.
+5. Driving the robot around in a black square.
 Finally, you can use the previous exercise to drive the robot around within a box. Can you make it go as closely as possible around the inside of the perimeter? I.e., constantly keep probing to one side?
