@@ -449,7 +449,7 @@ Then execute the following code.
 from ICAHSensor import ICAHSensor
 from time import sleep
 
-sensor = ICAHSensor(4, 18)
+sensor = ICAHSensor(trig=4, echo=18)
 
 while True:
     print('Distance to nearest object is', sensor.get_distance(), 'm')
