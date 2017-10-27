@@ -12,12 +12,14 @@ Please re-group into the teams from last time.
 
 Today's aim is to turn your robot into a fully functioning line follower - something akin to the following:
 
+<p align="center">
 [![A line follower](https://img.youtube.com/vi/fDRwqEJzUHM/0.jpg)](https://www.youtube.com/watch?v=fDRwqEJzUHM)
+</p>
 
 You will now complete the missing line sensor(s) on your robot, wire them up, write a program to use two line sensors instead of one, and test your contraption on our very own test tracks!
 
 <p align="center">
-    <img src="images/parcours.svg" alt="This is how the test track could look like." width="300">
+    <img src="images/parcours.svg" alt="This is how the test track could look like." width="600">
     <figcaption align="center">A sample test track</figcaption>
 </p>
 
