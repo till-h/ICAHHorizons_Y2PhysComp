@@ -12,9 +12,7 @@ Please re-group into the teams from last time.
 
 Today's aim is to turn your robot into a fully functioning line follower - something akin to the following:
 
-<p align="center">
 [![A line follower](https://img.youtube.com/vi/fDRwqEJzUHM/0.jpg)](https://www.youtube.com/watch?v=fDRwqEJzUHM)
-</p>
 
 You will now complete the missing line sensor(s) on your robot, wire them up, write a program to use two line sensors instead of one, and test your contraption on our very own test tracks!
 
@@ -40,7 +38,7 @@ So throughout this session, you should think about what you want to include in t
 1. Before you get lost in writing the code to control the robot, think about the high-level design. What are you trying to achieve? What should happen when one of the sensors "sees" the black line? How fast can you drive your robot around the parcours before overshooting the line becomes an issue and it misses it altogether at the slightest bend? Maybe the following diagram helps.
 
    <p align="center">
-    <img src="images/line_sensor_flowchart.png" alt="Line sensor logic" width="300">
+    <img src="images/line_sensor_flowchart.png" alt="Line sensor logic" width="600">
     <figcaption align="center">An (incomplete) flowchart for using two line sensors</figcaption>
    </p>
 
