@@ -12,7 +12,9 @@ Please re-group into the teams from last time.
 
 Today's aim is to turn your robot into a fully functioning line follower - something akin to the following:
 
-[![A line follower](https://img.youtube.com/vi/fDRwqEJzUHM/0.jpg)](https://www.youtube.com/watch?v=fDRwqEJzUHM)
+<iframe width="420" height="315"
+src="https://www.youtube.com/embed/fDRwqEJzUHM">
+</iframe>
 
 You will now complete the missing line sensor(s) on your robot, wire them up, write a program to use two line sensors instead of one, and test your contraption on our very own test tracks!
 
@@ -25,7 +27,7 @@ You will now complete the missing line sensor(s) on your robot, wire them up, wr
 
 As we told you during the Introductory Session, you will be expected to write up this work in a successes and failures document.
 
-So throughout this session, you should think about what you want to include in there --
+So throughout this session, you should think about what you want to include in there &emdash;
 
 * You only have tonight to take pictures of the robot
 * Exchange contact details with your team mates in case you need to check back over anything after the class
@@ -33,7 +35,7 @@ So throughout this session, you should think about what you want to include in t
 
 # Exercises
 
-1. Install the second line sensor on your robot and complete the electronic setup. Based on [the code we used during the last session](https://github.com/till-h/ICAHHorizons_Y2PhysComp/blob/master/session%202/Session%202%20Workbook%20-%20Physical%20Computing.md#exercises), write a test program to ensure both sensors work as intended. You can use the tracks or some spare black tape for this.
+1. Install the second line sensor on your robot and complete the electronic setup. Based on [the code we used during the last session (cf. ex. 4)](https://github.com/till-h/ICAHHorizons_Y2PhysComp/blob/master/session%202/Session%202%20Workbook%20-%20Physical%20Computing.md#exercises), write a test program to ensure both sensors work as intended. You can use the tracks laid out on the tables or some spare black tape stuck on white paper for this.
 
 1. Before you get lost in writing the code to control the robot, think about the high-level design. What are you trying to achieve? What should happen when one of the sensors "sees" the black line? How fast can you drive your robot around the parcours before overshooting the line becomes an issue and it misses it altogether at the slightest bend? Maybe the following diagram helps.
 
